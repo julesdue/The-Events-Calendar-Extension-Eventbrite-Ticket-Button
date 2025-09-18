@@ -91,7 +91,11 @@ msgstr ""
 msgid "Add New Ticket Option"
 msgstr ""
 
-#: tribe-ext-eventbrite-checkout-button.php:230
+#: tribe-ext-eventbrite-checkout-button.php:183
+msgid "Show Link to ticket overview"
+msgstr ""
+
+#: tribe-ext-eventbrite-checkout-button.php:237
 msgid "Zutritt zu diesen Filmen mit folgenden Tickets"
 msgstr ""
 
