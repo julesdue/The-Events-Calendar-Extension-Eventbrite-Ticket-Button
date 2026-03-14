@@ -9,5 +9,13 @@ A custom extension to the plugin THE EVENTS CALENDAR https://theeventscalendar.c
 - It is rendered in first palce on top before everything else in the sidebar (or wherever the details panel is placed)
 
 
-## Screenshot of frontend
-![image](https://github.com/user-attachments/assets/578c78b4-b90e-46aa-9581-7e7b36e05837)
+## Screenshots
+
+### Frontend
+![Frontend screenshot](images/screenshot_frontend.png)
+
+### Plugin overview in WordPress
+![Plugins page screenshot](images/screenshot_plugins_page.png)
+
+### Event editor backend section
+![Backend screenshot](images/screenshot_backend.png)
