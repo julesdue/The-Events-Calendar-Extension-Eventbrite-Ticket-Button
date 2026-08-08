@@ -3,13 +3,13 @@
  * Plugin Name:       The Events Calendar Extension: Eventbrite Ticket Button
  * Plugin URI:        none
  * Description:       Adds a custom field for an Eventbrite embed code and a button to the event details page in The Events Calendar.
- * Version:           1.5.0
+ * Version:           1.6.0
  * Extension Class:   Tribe__Extension__Eventbrite_Ticket_Button
  * Author:            Julian Duenser
  * Author URI:        none
  * License:           GPL version 3 or any later version
  * License URI:       https://www.gnu.org/licenses/gpl-3.0.html
- * Text Domain:       tribe-ext-eventbrite-checkout-button
+ * Text Domain:       tribe-ext-eventbrite-ticket-button
  */
 
 // Ensure the Tribe__Extension class exists before trying to extend it.
@@ -36,7 +36,7 @@ if (
          */
         public function init() {
             // Load plugin textdomain for internationalization.
-            load_plugin_textdomain( 'tribe-ext-eventbrite-checkout-button', false, basename( dirname( __FILE__ ) ) . '/languages/' );
+            load_plugin_textdomain( 'tribe-ext-eventbrite-ticket-button', false, basename( dirname( __FILE__ ) ) . '/languages/' );
 
             // Add the meta box to the event editing screen in the WordPress admin.
             add_action( 'add_meta_boxes', array( $this, 'add_custom_link_meta_box' ) );
@@ -95,11 +95,11 @@ if (
                 'tribe-ext-eventbrite-admin-scripts',
                 'eventbrite_ticket_button_vars', // This will be the global JS variable name
                 array(
-                    'embed_code_label'      => esc_html__( 'Eventbrite embed code (Eventbrite checkout popup)', 'tribe-ext-eventbrite-checkout-button' ),
-                    'url_label'             => esc_html__( 'Eventbrite URL (used as fallback link if no embed code is provided)', 'tribe-ext-eventbrite-checkout-button' ),
-                    'remove_button_text'    => esc_html__( 'Remove Entry', 'tribe-ext-eventbrite-checkout-button' ),
-                    'confirm_remove_text' => esc_html__( 'Are you sure you want to remove this entry?', 'tribe-ext-eventbrite-checkout-button' ),
-                    'entry_label_prefix'    => esc_html__( 'Ticket Option', 'tribe-ext-eventbrite-checkout-button' ),
+                    'embed_code_label'      => esc_html__( 'Eventbrite embed code (Eventbrite checkout popup)', 'tribe-ext-eventbrite-ticket-button' ),
+                    'url_label'             => esc_html__( 'Eventbrite URL (used as fallback link if no embed code is provided)', 'tribe-ext-eventbrite-ticket-button' ),
+                    'remove_button_text'    => esc_html__( 'Remove Entry', 'tribe-ext-eventbrite-ticket-button' ),
+                    'confirm_remove_text' => esc_html__( 'Are you sure you want to remove this entry?', 'tribe-ext-eventbrite-ticket-button' ),
+                    'entry_label_prefix'    => esc_html__( 'Ticket Option', 'tribe-ext-eventbrite-ticket-button' ),
                 )
             );
         }
@@ -124,7 +124,7 @@ if (
         public function add_custom_link_meta_box() {
             add_meta_box(
                 'tribe_events_custom_link_details', // Unique ID for the meta box.
-                esc_html__( 'Eventbrite Checkout Section', 'tribe-ext-eventbrite-checkout-button' ), // Title of the meta box.
+                esc_html__( 'Eventbrite Checkout Section', 'tribe-ext-eventbrite-ticket-button' ), // Title of the meta box.
                 array( $this, 'render_custom_link_meta_box' ), // Callback function to render the content.
                 'tribe_events', // The post type where the meta box will appear (The Events Calendar's event post type).
                 'normal', // Context (where on the screen the meta box will be displayed).
@@ -226,16 +226,16 @@ if (
             <div id="eventbrite-fields-wrapper">
                 <?php foreach ( $eventbrite_entries as $index => $entry ) : ?>
                     <div class="eventbrite-field-row <?php echo ( $index === 0 && count( $eventbrite_entries ) === 1 && empty( $entry['html'] ) && empty( $entry['url'] ) ) ? 'initial-empty-row' : ''; ?>">
-                        <button type="button" class="remove-eventbrite-field-icon" title="<?php echo esc_attr__( 'Remove Entry', 'tribe-ext-eventbrite-checkout-button' ); ?>" aria-label="<?php echo esc_attr__( 'Remove Entry', 'tribe-ext-eventbrite-checkout-button' ); ?>">
+                        <button type="button" class="remove-eventbrite-field-icon" title="<?php echo esc_attr__( 'Remove Entry', 'tribe-ext-eventbrite-ticket-button' ); ?>" aria-label="<?php echo esc_attr__( 'Remove Entry', 'tribe-ext-eventbrite-ticket-button' ); ?>">
                             <span class="dashicons dashicons-trash" aria-hidden="true"></span>
                         </button>
                         <div class="ticket-option-header">
-                            <span class="dashicons dashicons-menu sort-handle"></span> <p class="ticket-option-label"><strong><?php printf( esc_html__( 'Ticket Option %d', 'tribe-ext-eventbrite-checkout-button' ), $index + 1 ); ?></strong></p>
+                            <span class="dashicons dashicons-menu sort-handle"></span> <p class="ticket-option-label"><strong><?php printf( esc_html__( 'Ticket Option %d', 'tribe-ext-eventbrite-ticket-button' ), $index + 1 ); ?></strong></p>
                         </div>
 
                         <div class="tribe-ext-custom-html-field">
                             <label for="<?php echo esc_attr( $fields['Eventbrite Entries'] . '[' . $index . '][html]' ); ?>">
-                                <?php esc_html_e( 'Eventbrite embed code (Eventbrite checkout popup):', 'tribe-ext-eventbrite-checkout-button' ); ?>
+                                <?php esc_html_e( 'Eventbrite embed code (Eventbrite checkout popup):', 'tribe-ext-eventbrite-ticket-button' ); ?>
                             </label>
                             <textarea
                                 id="<?php echo esc_attr( $fields['Eventbrite Entries'] . '[' . $index . '][html]' ); ?>"
@@ -246,7 +246,7 @@ if (
                         </div>
                         <div class="tribe-ext-custom-link-field">
                             <label for="<?php echo esc_attr( $fields['Eventbrite Entries'] . '[' . $index . '][url]' ); ?>">
-                                <?php esc_html_e( 'Eventbrite URL (used as fallback link if no embed code is provided):', 'tribe-ext-eventbrite-checkout-button' ); ?>
+                                <?php esc_html_e( 'Eventbrite URL (used as fallback link if no embed code is provided):', 'tribe-ext-eventbrite-ticket-button' ); ?>
                             </label>
                             <input
                                 type="url"
@@ -261,7 +261,7 @@ if (
             </div>
             <p>
                 <button type="button" id="add-new-eventbrite-field" class="button button-primary">
-                    <?php esc_html_e( 'Add New Ticket Option', 'tribe-ext-eventbrite-checkout-button' ); ?>
+                    <?php esc_html_e( 'Add New Ticket Option', 'tribe-ext-eventbrite-ticket-button' ); ?>
                 </button>
             </p>
             <?php
@@ -288,10 +288,10 @@ if (
                         value="1"
                         <?php checked( $show_overview, '1' ); ?>
                     />
-                    <?php esc_html_e( 'Show Link to ticket overview', 'tribe-ext-eventbrite-checkout-button' ); ?>
+                    <?php esc_html_e( 'Show Link to ticket overview', 'tribe-ext-eventbrite-ticket-button' ); ?>
                 </label>
                 <label for="<?php echo esc_attr( $overview_url_key ); ?>">
-                    <?php esc_html_e( 'Overview URL:', 'tribe-ext-eventbrite-checkout-button' ); ?>
+                    <?php esc_html_e( 'Overview URL:', 'tribe-ext-eventbrite-ticket-button' ); ?>
                 </label>
                 <input
                     type="url"
@@ -401,7 +401,7 @@ if (
             }
 
             // Hardcoded main button label for fallback URL.
-            $button_label = esc_html__( 'Jetzt Ticket kaufen', 'tribe-ext-eventbrite-checkout-button' );
+            $button_label = esc_html__( 'Jetzt Ticket kaufen', 'tribe-ext-eventbrite-ticket-button' );
 
             ?>
             <div class="tribe-ext-custom-content-wrapper tribe-events-meta-group tribe-events-meta-group-details">
@@ -412,7 +412,7 @@ if (
                     }
                 </style>
                 <h3 class="tribe-events-single-section-title">
-                    <?php esc_html_e( 'Tickets', 'tribe-ext-eventbrite-checkout-button' ); ?>
+                    <?php esc_html_e( 'Tickets', 'tribe-ext-eventbrite-ticket-button' ); ?>
                 </h3>
                 <dl>
                     <dd class="tribe-ext-event-description">
@@ -454,7 +454,7 @@ if (
                         ?>
                         <p class="tribe-ext-ticket-overview-link">
                             <a href="<?php echo esc_url( $overview_url ); ?>" target="_blank" rel="noopener noreferrer">
-                                <?php esc_html_e( 'Ticketübersicht', 'tribe-ext-eventbrite-checkout-button' ); ?>
+                                <?php esc_html_e( 'Ticketübersicht', 'tribe-ext-eventbrite-ticket-button' ); ?>
                             </a>
                         </p>
                         <?php endif; ?>

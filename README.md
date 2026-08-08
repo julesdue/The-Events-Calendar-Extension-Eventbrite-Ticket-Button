@@ -7,15 +7,14 @@ A custom extension to the plugin THE EVENTS CALENDAR https://theeventscalendar.c
 ## Functionality
 - Adds a custom field for an Eventbrite button embed code and a displays the embedding code 1:1 on the frontend page of the event site. 
 - It is rendered in first palce on top before everything else in the sidebar (or wherever the details panel is placed)
+- Supports multiple ticket options per event, with drag-and-drop reordering in the backend
+- Optional link to a ticket overview page, shown below the ticket buttons
 
 
 ## Screenshots
 
 ### Frontend
-![Frontend screenshot](images/screenshot_frontend.png)
-
-### Plugin overview in WordPress
-![Plugins page screenshot](images/screenshot_plugins_page.png)
+![Frontend screenshot](screenshots/screenshot_frontend.png)
 
 ### Event editor backend section
-![Backend screenshot](images/screenshot_backend.png)
+![Backend screenshot](screenshots/screenshot_backend.png)

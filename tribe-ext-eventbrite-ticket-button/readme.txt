@@ -1,15 +1,17 @@
 === The Events Calendar Extension: Eventbrite Ticket Button ===
 Contributors: Julian Duenser
-Tags: events, calendar
-Requires at least: x
-Tested up to: x
-Requires PHP: x
-Stable tag: x
+Tags: events, calendar, eventbrite, tickets
+Requires at least: 4.6
+Tested up to: 6.6
+Requires PHP: 7.0
+Stable tag: 1.6.0
 License: GPL version 3 or any later version
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 
 == Description ==
+
+Adds a custom field for an Eventbrite embed code and displays it 1:1 on the frontend of the event details page, powered by The Events Calendar. Supports multiple ticket options per event with drag-and-drop reordering, and an optional link to a ticket overview page.
 
 
 == Installation ==
@@ -53,3 +55,7 @@ Install and activate like any other plugin!
 * cleanup of backend UI
 * adding input field for ticket overview site
 * make sure the ticket overview link is in a new link in frontend UI
+
+= [1.6.0] 2026-08-08
+
+* updated documentation and cleanup
